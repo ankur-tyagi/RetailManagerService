@@ -17,10 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.db.retailmanager.modal.Shop;
 import com.db.retailmanager.modal.ShopGeoLocation;
+import com.db.retailmanager.service.RetailManagerService;
 
 @RestController
 @RequestMapping(value="/")
 public class RetailManagerController {
+	@Autowired
+	private RetailManagerService retailManagerService;
 
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String getInfo() {
@@ -31,8 +34,13 @@ public class RetailManagerController {
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Collection<RetailManagerResponse>> getShops(@RequestParam(value="customerLongitude") Float customerLongitude,
 			@RequestParam(value="customerLatitude") Float customerLatitude) {
+		List<Shop> shops = retailManagerService.getShops(new ShopGeoLocation(customerLatitude, customerLongitude));
 
 		List<RetailManagerResponse> retailManagerResponses = new ArrayList<>();
+		for(Shop shop : shops) {
+			RetailManagerResponse retailManagerResponse = mapResponse(shop);
+			retailManagerResponses.add(retailManagerResponse);
+		}
 		HttpStatus httpStatus = HttpStatus.OK;
 		if (CollectionUtils.isEmpty(retailManagerResponses)) {
 			httpStatus = HttpStatus.NO_CONTENT;
@@ -43,7 +51,8 @@ public class RetailManagerController {
 	@RequestMapping(value="api/shops", method=RequestMethod.POST,
 			consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<RetailManagerResponse> addShop(@RequestBody RetailManagerRequest request) {
-		RetailManagerResponse retailManagerResponse = new RetailManagerResponse();
+		Shop shopAdded = retailManagerService.addShop(request);
+		RetailManagerResponse retailManagerResponse = mapResponse(shopAdded);
 	    return new ResponseEntity<RetailManagerResponse>(retailManagerResponse, HttpStatus.CREATED);
 	}
 

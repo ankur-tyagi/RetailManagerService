@@ -1,0 +1,78 @@
+{
+	"info": {
+		"name": "RetailManagerService",
+		"_postman_id": "d8283975-c01b-580d-20b8-4fe2359e1464",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/shops?customerLongitude=80.2865916&customerLatitude=13.0963045",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"shops"
+					],
+					"query": [
+						{
+							"key": "customerLongitude",
+							"value": "80.2865916",
+							"equals": true
+						},
+						{
+							"key": "customerLatitude",
+							"value": "13.0963045",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "addshops",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"shopName\": \"my shop\",\n    \"shopAddress\": {\n      \"number\": 777,\n      \"postCode\": \"600001\"\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/shops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"shops"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
