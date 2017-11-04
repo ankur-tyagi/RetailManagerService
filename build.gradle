@@ -39,4 +39,5 @@ dependencies {
 	compile 'com.google.maps:google-maps-services:0.1.19'
 
     testCompile("junit:junit")
+	testCompile("org.springframework.boot:spring-boot-starter-test")
 }
