@@ -1,0 +1,60 @@
+package com.db.retailmanager.api;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.db.retailmanager.modal.Shop;
+import com.db.retailmanager.modal.ShopGeoLocation;
+
+@RestController
+@RequestMapping(value="/")
+public class RetailManagerController {
+
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public String getInfo() {
+		return "This is Retail Manager Application";
+	}
+
+	@RequestMapping(value="api/shops", method=RequestMethod.GET,
+			produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Collection<RetailManagerResponse>> getShops(@RequestParam(value="customerLongitude") Float customerLongitude,
+			@RequestParam(value="customerLatitude") Float customerLatitude) {
+
+		List<RetailManagerResponse> retailManagerResponses = new ArrayList<>();
+		HttpStatus httpStatus = HttpStatus.OK;
+		if (CollectionUtils.isEmpty(retailManagerResponses)) {
+			httpStatus = HttpStatus.NO_CONTENT;
+		}
+		return new ResponseEntity<Collection<RetailManagerResponse>>(retailManagerResponses, httpStatus);
+	}
+
+	@RequestMapping(value="api/shops", method=RequestMethod.POST,
+			consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<RetailManagerResponse> addShop(@RequestBody RetailManagerRequest request) {
+		RetailManagerResponse retailManagerResponse = new RetailManagerResponse();
+	    return new ResponseEntity<RetailManagerResponse>(retailManagerResponse, HttpStatus.CREATED);
+	}
+
+	private RetailManagerResponse mapResponse(Shop shopAdded) {
+		RetailManagerResponse retailManagerResponse = new RetailManagerResponse();
+		retailManagerResponse.setShopName(shopAdded.getShopName());
+		retailManagerResponse.setShopAddress(shopAdded.getShopAddress());
+		retailManagerResponse.setShopLatitude(shopAdded.getShopLatitude());
+		retailManagerResponse.setShopLongitude(shopAdded.getShopLongitude());
+
+		return retailManagerResponse;
+	}
+
+}
