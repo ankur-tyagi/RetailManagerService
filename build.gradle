@@ -34,5 +34,9 @@ dependencies {
     // tag::actuator[]
     compile("org.springframework.boot:spring-boot-starter-actuator")
     // end::actuator[]
+
+	// https://mvnrepository.com/artifact/com.google.code.geocoder-java/geocoder-java
+	compile 'com.google.maps:google-maps-services:0.1.19'
+
     testCompile("junit:junit")
 }
