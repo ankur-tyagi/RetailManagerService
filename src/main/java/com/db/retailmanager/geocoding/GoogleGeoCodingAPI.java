@@ -2,6 +2,7 @@ package com.db.retailmanager.geocoding;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.db.retailmanager.api.RetailManagerRequest;
@@ -18,11 +19,13 @@ import com.google.maps.model.LatLng;
 @Component
 public class GoogleGeoCodingAPI {
 
-	private static final String GOOGLE_GEOCODING_KEY = "AIzaSyD41-vtU2HGnTA3EHdiNWCQAT9YXl5emjw";
+	@Value("${Google.GeoCodingAPI.Key}")
+	private String GOOGLE_GEOCODING_KEY;
 
 	private static final Logger logger = LoggerFactory.getLogger(GoogleGeoCodingAPI.class);
 
 	public ShopGeoLocation getShopGeoLocation(RetailManagerRequest request) {
+		logger.debug("GOOGLE_GEOCODING_KEY = " + GOOGLE_GEOCODING_KEY);
 		GeoApiContext context = new GeoApiContext().setApiKey(GOOGLE_GEOCODING_KEY);
 		try {
 			ComponentFilter componentFilter = ComponentFilter.postalCode(request.getShopAddress().getPostCode());
