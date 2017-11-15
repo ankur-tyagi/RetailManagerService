@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.db.retailmanager.api.error.RetailManagerException;
 import com.db.retailmanager.modal.Shop;
 import com.db.retailmanager.modal.ShopGeoLocation;
 import com.db.retailmanager.service.RetailManagerService;
@@ -34,12 +35,21 @@ public class RetailManagerController {
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Collection<RetailManagerResponse>> getShops(@RequestParam(value="customerLongitude") Float customerLongitude,
 			@RequestParam(value="customerLatitude") Float customerLatitude) {
-		List<Shop> shops = retailManagerService.getShops(new ShopGeoLocation(customerLatitude, customerLongitude));
+		List<Shop> shops = null;
+		try {
+			shops = retailManagerService.getShops(new ShopGeoLocation(customerLatitude, customerLongitude));
+		} catch (RetailManagerException retailManagerxception) {
+			return new ResponseEntity<Collection<RetailManagerResponse>>(new ArrayList<RetailManagerResponse>(), HttpStatus.BAD_REQUEST);
+		} catch (Exception exception) {
+			return new ResponseEntity<Collection<RetailManagerResponse>>(new ArrayList<RetailManagerResponse>(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 
-		List<RetailManagerResponse> retailManagerResponses = new ArrayList<>();
-		for(Shop shop : shops) {
-			RetailManagerResponse retailManagerResponse = mapResponse(shop);
-			retailManagerResponses.add(retailManagerResponse);
+		List<RetailManagerResponse> retailManagerResponses = new ArrayList<RetailManagerResponse>();
+		if (!CollectionUtils.isEmpty(shops)) {
+			for(Shop shop : shops) {
+				RetailManagerResponse retailManagerResponse = mapResponse(shop);
+				retailManagerResponses.add(retailManagerResponse);
+			}
 		}
 		HttpStatus httpStatus = HttpStatus.OK;
 		if (CollectionUtils.isEmpty(retailManagerResponses)) {
@@ -51,7 +61,15 @@ public class RetailManagerController {
 	@RequestMapping(value="api/shops", method=RequestMethod.POST,
 			consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<RetailManagerResponse> addShop(@RequestBody RetailManagerRequest request) {
-		Shop shopAdded = retailManagerService.addShop(request);
+		Shop shopAdded = null;
+		try {
+			shopAdded = retailManagerService.addShop(request);
+		} catch (RetailManagerException retailManagerxception) {
+		    return new ResponseEntity<RetailManagerResponse>(new RetailManagerResponse(), HttpStatus.BAD_REQUEST);
+		} catch (Exception exception) {
+		    return new ResponseEntity<RetailManagerResponse>(new RetailManagerResponse(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
 		RetailManagerResponse retailManagerResponse = mapResponse(shopAdded);
 	    return new ResponseEntity<RetailManagerResponse>(retailManagerResponse, HttpStatus.CREATED);
 	}

@@ -45,7 +45,6 @@ We list technical items to taken care for production ready
 # TasksList
 * use actual database
 * addition of code coverage
-* adding more detailed unit-tests
 * accutator for monitoring of service
 * update comments and documentaion. 
 * add REST APIs for administration of service

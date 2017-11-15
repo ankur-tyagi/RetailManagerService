@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.db.retailmanager.api.RetailManagerRequest;
+import com.db.retailmanager.api.error.RetailManagerException;
 import com.db.retailmanager.modal.ShopGeoLocation;
 import com.google.maps.GeoApiContext;
 import com.google.maps.GeocodingApi;
@@ -24,7 +25,7 @@ public class GoogleGeoCodingAPI {
 
 	private static final Logger logger = LoggerFactory.getLogger(GoogleGeoCodingAPI.class);
 
-	public ShopGeoLocation getShopGeoLocation(RetailManagerRequest request) {
+	public ShopGeoLocation getShopGeoLocation(RetailManagerRequest request) throws RetailManagerException {
 		logger.debug("GOOGLE_GEOCODING_KEY = " + GOOGLE_GEOCODING_KEY);
 		GeoApiContext context = new GeoApiContext().setApiKey(GOOGLE_GEOCODING_KEY);
 		try {
@@ -53,11 +54,12 @@ public class GoogleGeoCodingAPI {
 			}
 		} catch (Exception exception) {
 			logger.error("GoogleGeoCodingAPI : Excpetion=" + exception.getMessage());
+			throw new RetailManagerException(RetailManagerException.RETURN_CODE_INVALID_REQUEST, exception.getMessage());
 		}
 		return null;
 	}
 
-	public String getPostalCode(ShopGeoLocation shopGeoLocation) {
+	public String getPostalCode(ShopGeoLocation shopGeoLocation) throws RetailManagerException {
 		GeoApiContext context = new GeoApiContext().setApiKey(GOOGLE_GEOCODING_KEY);
 
 		try {
@@ -79,6 +81,7 @@ public class GoogleGeoCodingAPI {
 			}
 		} catch (Exception exception) {
 			logger.error("GoogleGeoCodingAPI : Excpetion=" + exception.getMessage());
+			throw new RetailManagerException(RetailManagerException.RETURN_CODE_INVALID_REQUEST, exception.getMessage());
 		}
 		return null;
 	}

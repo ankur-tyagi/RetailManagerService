@@ -5,7 +5,6 @@ import java.math.BigInteger;
 public class ShopAddress {
 	private BigInteger number;
 	private String postCode;
-	private ShopGeoLocation shopGeoLocation;
 
 	public ShopAddress() {
 	}
@@ -34,14 +33,6 @@ public class ShopAddress {
 
 	public void setPostCode(String postCode) {
 		this.postCode = postCode;
-	}
-
-	public ShopGeoLocation getShopGeoLocation() {
-		return shopGeoLocation;
-	}
-
-	public void setShopGeoLocation(ShopGeoLocation shopGeoLocation) {
-		this.shopGeoLocation = shopGeoLocation;
 	}
 
 }

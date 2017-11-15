@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.db.retailmanager.service.RetailManagerServiceTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.db.retailmanager.service.RetailManagerServiceTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.db.retailmanager.service.html">com.db.retailmanager.service</a> &gt; RetailManagerServiceTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">4</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">5.061s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">addShopConcurrencyTest</td>
+<td>5.013s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addShopTest</td>
+<td>0.022s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getShopExceptionTest</td>
+<td>0.020s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getShopTest</td>
+<td>0.006s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2017-11-16 02:35:19.507  INFO 7672 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.db.retailmanager.service.RetailManagerServiceTest], using SpringBootContextLoader
+2017-11-16 02:35:19.508  INFO 7672 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.db.retailmanager.service.RetailManagerServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2017-11-16 02:35:19.509  INFO 7672 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.db.retailmanager.service.RetailManagerServiceTest]: RetailManagerServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2017-11-16 02:35:19.523  INFO 7672 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.db.retailmanager.RetailManagerApplication for test class com.db.retailmanager.service.RetailManagerServiceTest
+2017-11-16 02:35:19.527  INFO 7672 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-11-16 02:35:19.531  INFO 7672 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Could not instantiate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+2017-11-16 02:35:19.531  INFO 7672 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Could not instantiate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+2017-11-16 02:35:19.532  INFO 7672 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7b4df4b8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@161c0191, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@706d188e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2903fb64, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3d7f22c8, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4b19ac7f, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@53a874fa, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@65466d30, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@216b7a32, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@27174034]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.5.8.RELEASE)
+
+2017-11-16 02:35:19.573  INFO 7672 --- [    Test worker] c.d.r.service.RetailManagerServiceTest   : Starting RetailManagerServiceTest on aadvik with PID 7672 (started by aadvik in D:\github\RetailManagerService)
+2017-11-16 02:35:19.573  INFO 7672 --- [    Test worker] c.d.r.service.RetailManagerServiceTest   : No active profile set, falling back to default profiles: default
+2017-11-16 02:35:19.573  INFO 7672 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@237f3e93: startup date [Thu Nov 16 02:35:19 IST 2017]; root of context hierarchy
+2017-11-16 02:35:20.074  INFO 7672 --- [    Test worker] c.d.r.r.RetailManagerRepositoryInMemory  : RetailManagerRepositoryInMemory : adding Shop [shopName=Dummy Shop One, shopAddress=ShopAddress [number=1, postCode=600001], shopLongitude=80.2865916, shopLatitude=13.0963045]
+2017-11-16 02:35:20.074  INFO 7672 --- [    Test worker] c.d.r.r.RetailManagerRepositoryInMemory  : Adding new shop
+2017-11-16 02:35:20.074  INFO 7672 --- [    Test worker] c.d.r.r.RetailManagerRepositoryInMemory  : RetailManagerRepositoryInMemory : adding Shop [shopName=Dummy Shop Two, shopAddress=ShopAddress [number=1, postCode=100001], shopLongitude=0.0, shopLatitude=39.9077718]
+2017-11-16 02:35:20.074  INFO 7672 --- [    Test worker] c.d.r.r.RetailManagerRepositoryInMemory  : Adding new shop
+2017-11-16 02:35:20.388  INFO 7672 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@237f3e93: startup date [Thu Nov 16 02:35:19 IST 2017]; root of context hierarchy
+2017-11-16 02:35:20.419  INFO 7672 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/],methods=[GET]}&quot; onto public java.lang.String com.db.retailmanager.api.RetailManagerController.getInfo()
+2017-11-16 02:35:20.419  INFO 7672 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/api/shops],methods=[GET],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.util.Collection&lt;com.db.retailmanager.api.RetailManagerResponse&gt;&gt; com.db.retailmanager.api.RetailManagerController.getShops(java.lang.Float,java.lang.Float)
+2017-11-16 02:35:20.419  INFO 7672 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/api/shops],methods=[POST],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;com.db.retailmanager.api.RetailManagerResponse&gt; com.db.retailmanager.api.RetailManagerController.addShop(com.db.retailmanager.api.RetailManagerRequest)
+2017-11-16 02:35:20.419  INFO 7672 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/error]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.util.Map&lt;java.lang.String, java.lang.Object&gt;&gt; org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-11-16 02:35:20.419  INFO 7672 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/error],produces=[text/html]}&quot; onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-11-16 02:35:20.450  INFO 7672 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-16 02:35:20.450  INFO 7672 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-16 02:35:20.466  INFO 7672 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in exceptionControllerAdvice
+2017-11-16 02:35:20.497  INFO 7672 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-16 02:35:20.739  INFO 7672 --- [    Test worker] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped &quot;{[/dump || /dump.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-11-16 02:35:20.739  INFO 7672 --- [    Test worker] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped &quot;{[/metrics/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+2017-11-16 02:35:20.739  INFO 7672 --- [    Test worker] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped &quot;{[/metrics || /metrics.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-11-16 02:35:20.739  INFO 7672 --- [    Test worker] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped &quot;{[/env/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+2017-11-16 02:35:20.739  INFO 7672 --- [    Test worker] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped &quot;{[/env || /env.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-11-16 02:35:20.739  INFO 7672 --- [    Test worker] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped &quot;{[/trace || /trace.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-11-16 02:35:20.739  INFO 7672 --- [    Test worker] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped &quot;{[/mappings || /mappings.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-11-16 02:35:20.739  INFO 7672 --- [    Test worker] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped &quot;{[/beans || /beans.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-11-16 02:35:20.739  INFO 7672 --- [    Test worker] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped &quot;{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-11-16 02:35:20.739  INFO 7672 --- [    Test worker] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped &quot;{[/configprops || /configprops.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-11-16 02:35:20.739  INFO 7672 --- [    Test worker] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped &quot;{[/auditevents || /auditevents.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;?&gt; org.springframework.boot.actuate.endpoint.mvc.AuditEventsMvcEndpoint.findByPrincipalAndAfterAndType(java.lang.String,java.util.Date,java.lang.String)
+2017-11-16 02:35:20.739  INFO 7672 --- [    Test worker] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped &quot;{[/health || /health.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,java.security.Principal)
+2017-11-16 02:35:20.739  INFO 7672 --- [    Test worker] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped &quot;{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}&quot; onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+2017-11-16 02:35:20.739  INFO 7672 --- [    Test worker] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped &quot;{[/loggers/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.get(java.lang.String)
+2017-11-16 02:35:20.755  INFO 7672 --- [    Test worker] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped &quot;{[/loggers/{name:.*}],methods=[POST],consumes=[application/vnd.spring-boot.actuator.v1+json || application/json],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.set(java.lang.String,java.util.Map&lt;java.lang.String, java.lang.String&gt;)
+2017-11-16 02:35:20.755  INFO 7672 --- [    Test worker] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped &quot;{[/loggers || /loggers.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-11-16 02:35:20.755  INFO 7672 --- [    Test worker] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped &quot;{[/info || /info.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}&quot; onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-11-16 02:35:20.933  INFO 7672 --- [    Test worker] c.d.r.service.RetailManagerServiceTest   : Started RetailManagerServiceTest in 1.395 seconds (JVM running for 16.712)
+2017-11-16 02:35:20.964  INFO 7672 --- [    Test worker] c.d.r.r.RetailManagerRepositoryInMemory  : RetailManagerRepositoryInMemory : adding Shop [shopName=Test Shop, shopAddress=ShopAddress [number=1, postCode=123456], shopLongitude=3.4, shopLatitude=1.2]
+2017-11-16 02:35:20.964  INFO 7672 --- [    Test worker] c.d.r.r.RetailManagerRepositoryInMemory  : Adding new shop
+2017-11-16 02:35:20.964  INFO 7672 --- [pool-6-thread-1] c.d.r.r.RetailManagerRepositoryInMemory  : RetailManagerRepositoryInMemory : adding Shop [shopName=My Concurrent Shop, shopAddress=ShopAddress [number=1, postCode=112233], shopLongitude=4.56, shopLatitude=1.23]
+2017-11-16 02:35:20.964  INFO 7672 --- [pool-6-thread-6] c.d.r.r.RetailManagerRepositoryInMemory  : RetailManagerRepositoryInMemory : adding Shop [shopName=My Concurrent Shop, shopAddress=ShopAddress [number=1, postCode=112233], shopLongitude=4.56, shopLatitude=1.23]
+2017-11-16 02:35:20.964  INFO 7672 --- [pool-6-thread-6] c.d.r.r.RetailManagerRepositoryInMemory  : Adding new shop
+2017-11-16 02:35:20.964  INFO 7672 --- [pool-6-thread-1] c.d.r.r.RetailManagerRepositoryInMemory  : Updating existing shop
+2017-11-16 02:35:20.964  INFO 7672 --- [pool-6-thread-7] c.d.r.r.RetailManagerRepositoryInMemory  : RetailManagerRepositoryInMemory : adding Shop [shopName=My Concurrent Shop, shopAddress=ShopAddress [number=1, postCode=112233], shopLongitude=4.56, shopLatitude=1.23]
+2017-11-16 02:35:20.964  INFO 7672 --- [pool-6-thread-7] c.d.r.r.RetailManagerRepositoryInMemory  : Updating existing shop
+2017-11-16 02:35:20.964  INFO 7672 --- [pool-6-thread-8] c.d.r.r.RetailManagerRepositoryInMemory  : RetailManagerRepositoryInMemory : adding Shop [shopName=My Concurrent Shop, shopAddress=ShopAddress [number=1, postCode=112233], shopLongitude=4.56, shopLatitude=1.23]
+2017-11-16 02:35:20.964  INFO 7672 --- [pool-6-thread-8] c.d.r.r.RetailManagerRepositoryInMemory  : Updating existing shop
+2017-11-16 02:35:20.964  INFO 7672 --- [pool-6-thread-3] c.d.r.r.RetailManagerRepositoryInMemory  : RetailManagerRepositoryInMemory : adding Shop [shopName=My Concurrent Shop, shopAddress=ShopAddress [number=1, postCode=112233], shopLongitude=4.56, shopLatitude=1.23]
+2017-11-16 02:35:20.964  INFO 7672 --- [pool-6-thread-3] c.d.r.r.RetailManagerRepositoryInMemory  : Updating existing shop
+2017-11-16 02:35:20.964  INFO 7672 --- [pool-6-thread-4] c.d.r.r.RetailManagerRepositoryInMemory  : RetailManagerRepositoryInMemory : adding Shop [shopName=My Concurrent Shop, shopAddress=ShopAddress [number=1, postCode=112233], shopLongitude=4.56, shopLatitude=1.23]
+2017-11-16 02:35:20.964  INFO 7672 --- [pool-6-thread-4] c.d.r.r.RetailManagerRepositoryInMemory  : Updating existing shop
+2017-11-16 02:35:20.964  INFO 7672 --- [pool-6-thread-9] c.d.r.r.RetailManagerRepositoryInMemory  : RetailManagerRepositoryInMemory : adding Shop [shopName=My Concurrent Shop, shopAddress=ShopAddress [number=1, postCode=112233], shopLongitude=4.56, shopLatitude=1.23]
+2017-11-16 02:35:20.964  INFO 7672 --- [pool-6-thread-9] c.d.r.r.RetailManagerRepositoryInMemory  : Updating existing shop
+2017-11-16 02:35:20.964  INFO 7672 --- [ool-6-thread-10] c.d.r.r.RetailManagerRepositoryInMemory  : RetailManagerRepositoryInMemory : adding Shop [shopName=My Concurrent Shop, shopAddress=ShopAddress [number=1, postCode=112233], shopLongitude=4.56, shopLatitude=1.23]
+2017-11-16 02:35:20.964  INFO 7672 --- [ool-6-thread-10] c.d.r.r.RetailManagerRepositoryInMemory  : Updating existing shop
+2017-11-16 02:35:20.964  INFO 7672 --- [pool-6-thread-2] c.d.r.r.RetailManagerRepositoryInMemory  : RetailManagerRepositoryInMemory : adding Shop [shopName=My Concurrent Shop, shopAddress=ShopAddress [number=1, postCode=112233], shopLongitude=4.56, shopLatitude=1.23]
+2017-11-16 02:35:20.980  INFO 7672 --- [pool-6-thread-2] c.d.r.r.RetailManagerRepositoryInMemory  : Updating existing shop
+2017-11-16 02:35:20.980  INFO 7672 --- [pool-6-thread-5] c.d.r.r.RetailManagerRepositoryInMemory  : RetailManagerRepositoryInMemory : adding Shop [shopName=My Concurrent Shop, shopAddress=ShopAddress [number=1, postCode=112233], shopLongitude=4.56, shopLatitude=1.23]
+2017-11-16 02:35:20.980  INFO 7672 --- [pool-6-thread-5] c.d.r.r.RetailManagerRepositoryInMemory  : Updating existing shop
+2017-11-16 02:35:25.975  INFO 7672 --- [    Test worker] c.d.r.r.RetailManagerRepositoryInMemory  : RetailManagerRepositoryInMemory : found Shop [shopName=Dummy Shop Two, shopAddress=ShopAddress [number=1, postCode=100001], shopLongitude=0.0, shopLatitude=39.9077718]
+2017-11-16 02:35:26.006  INFO 7672 --- [    Test worker] c.d.r.r.RetailManagerRepositoryInMemory  : RetailManagerRepositoryInMemory : found Shop [shopName=Dummy Shop Two, shopAddress=ShopAddress [number=1, postCode=100001], shopLongitude=0.0, shopLatitude=39.9077718]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 4.3</a> at 16 Nov, 2017 2:35:26 AM</p>
+</div>
+</div>
+</body>
+</html>

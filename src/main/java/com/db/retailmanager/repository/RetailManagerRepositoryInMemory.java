@@ -3,6 +3,8 @@ package com.db.retailmanager.repository;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,12 +17,12 @@ import com.db.retailmanager.modal.ShopAddress;
 public class RetailManagerRepositoryInMemory implements RetailManagerRepository {
 
 	private static final Logger logger = LoggerFactory.getLogger(RetailManagerRepositoryInMemory.class);
-	private List<Shop> shopList;
+	private Map<String, Shop> shopList;
 
 	public RetailManagerRepositoryInMemory() {
-		this.shopList = new ArrayList<Shop>();
+		this.shopList = new ConcurrentHashMap<String, Shop>();
 
-		//dummy data
+		// dummy data
 		Shop shop1 = new Shop();
 		shop1.setShopName("Dummy Shop One");
 		shop1.setShopAddress(new ShopAddress(BigInteger.valueOf(1), "600001"));
@@ -36,9 +38,20 @@ public class RetailManagerRepositoryInMemory implements RetailManagerRepository 
 	}
 
 	@Override
-	public void addShop(Shop shop) {
-		logger.debug("RetailManagerRepositoryInMemory : added " + shop.toString());
-		shopList.add(shop);
+	public void addShop(Shop newShop) {
+		logger.info("RetailManagerRepositoryInMemory : adding " + newShop.toString());
+		synchronized (shopList) {
+			Shop oldShop = shopList.get(newShop.getShopName());
+			if (oldShop == null) {
+				// just add shop
+				logger.info("Adding new shop");
+				shopList.put(newShop.getShopName(), newShop);
+			} else {
+				// update shop
+				logger.info("Updating existing shop");
+				shopList.replace(oldShop.getShopName(), newShop);
+			}
+		}
 	}
 
 	@Override
@@ -46,13 +59,13 @@ public class RetailManagerRepositoryInMemory implements RetailManagerRepository 
 		List<Shop> shops = new ArrayList<Shop>();
 
 		if (postalCode == null || shopList.isEmpty()) {
-			logger.debug("RetailManagerRepositoryInMemory : postal code is invalid or repository is empty");
+			logger.warn("RetailManagerRepositoryInMemory : postal code is invalid or repository is empty");
 			return shops;
 		}
 
-		for (Shop shop : shopList) {
+		for (Shop shop : shopList.values()) {
 			if (postalCode.equals(shop.getShopAddress().getPostCode())) {
-				logger.debug("RetailManagerRepositoryInMemory : found " + shop.toString());
+				logger.info("RetailManagerRepositoryInMemory : found " + shop.toString());
 				shops.add(shop);
 			}
 		}
@@ -60,8 +73,8 @@ public class RetailManagerRepositoryInMemory implements RetailManagerRepository 
 	}
 
 	@Override
-	public List<Shop> getAllShops() {
-		return shopList;
+	public Shop getShopByName(String shopName) {
+		return shopList.get(shopName);
 	}
 
 }

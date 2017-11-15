@@ -6,8 +6,7 @@ import com.db.retailmanager.modal.Shop;
 
 public interface RetailManagerRepository {
 
-	public List<Shop> getAllShops();
-
+	public Shop getShopByName(String shopName);
 	public List<Shop> getShop(String postalCode);
 
 	public void addShop(Shop shop);

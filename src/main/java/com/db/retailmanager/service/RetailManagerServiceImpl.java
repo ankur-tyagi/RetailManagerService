@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.db.retailmanager.api.RetailManagerRequest;
+import com.db.retailmanager.api.error.RetailManagerException;
 import com.db.retailmanager.repository.RetailManagerRepository;
 import com.db.retailmanager.geocoding.GoogleGeoCodingAPI;
 import com.db.retailmanager.modal.Shop;
@@ -21,7 +22,7 @@ public class RetailManagerServiceImpl implements RetailManagerService {
 	RetailManagerRepository retailManagerRepository;
 
 	@Override
-	public Shop addShop(RetailManagerRequest request) {
+	public Shop addShop(RetailManagerRequest request) throws RetailManagerException {
 		Shop shop = new Shop();
 		shop.setShopName(request.getShopName());
 		shop.setShopAddress(request.getShopAddress());
@@ -37,7 +38,7 @@ public class RetailManagerServiceImpl implements RetailManagerService {
 	}
 
 	@Override
-	public List<Shop> getShops(ShopGeoLocation shopGeoLocation) {
+	public List<Shop> getShops(ShopGeoLocation shopGeoLocation) throws RetailManagerException {
 		List<Shop> shops = new ArrayList<Shop>();
 
 		String postalCode = googleGeoCodingAPI.getPostalCode(shopGeoLocation);
