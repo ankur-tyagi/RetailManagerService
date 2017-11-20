@@ -1,17 +1,16 @@
 package com.db.retailmanager.modal;
 
-import java.math.BigInteger;
-
 public class Shop {
 	private String shopName;
 	private ShopAddress shopAddress;
 	private double shopLongitude;
 	private double shopLatitude;
+	private int version;
 
 	@Override
 	public String toString() {
 		return "Shop [shopName=" + shopName + ", shopAddress=" + shopAddress + ", shopLongitude="
-				+ shopLongitude + ", shopLatitude=" + shopLatitude + "]";
+				+ shopLongitude + ", shopLatitude=" + shopLatitude + ", version=" + version + "]";
 	}
 
 	public String getShopName() {
@@ -44,6 +43,14 @@ public class Shop {
 
 	public void setShopLatitude(double shopLatitude) {
 		this.shopLatitude = shopLatitude;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 }

@@ -6,8 +6,10 @@ import com.db.retailmanager.modal.Shop;
 
 public interface RetailManagerRepository {
 
+	public static final int INITIAL_VERSION = 0;
+
 	public Shop getShopByName(String shopName);
 	public List<Shop> getShop(String postalCode);
 
-	public void addShop(Shop shop);
+	public Shop addShop(Shop shop);
 }

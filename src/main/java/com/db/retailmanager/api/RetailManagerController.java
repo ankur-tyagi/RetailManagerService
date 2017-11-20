@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.db.retailmanager.api.error.RetailManagerException;
 import com.db.retailmanager.modal.Shop;
 import com.db.retailmanager.modal.ShopGeoLocation;
+import com.db.retailmanager.repository.RetailManagerRepository;
 import com.db.retailmanager.service.RetailManagerService;
 
 @RestController
@@ -71,7 +72,11 @@ public class RetailManagerController {
 		}
 
 		RetailManagerResponse retailManagerResponse = mapResponse(shopAdded);
-	    return new ResponseEntity<RetailManagerResponse>(retailManagerResponse, HttpStatus.CREATED);
+		HttpStatus httpStatus = HttpStatus.CREATED;
+		if (shopAdded.getVersion() != RetailManagerRepository.INITIAL_VERSION) {
+			httpStatus = HttpStatus.OK;
+		}
+	    return new ResponseEntity<RetailManagerResponse>(retailManagerResponse, httpStatus);
 	}
 
 	private RetailManagerResponse mapResponse(Shop shopAdded) {

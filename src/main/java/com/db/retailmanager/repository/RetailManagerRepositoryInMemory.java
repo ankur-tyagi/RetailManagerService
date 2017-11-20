@@ -28,30 +28,36 @@ public class RetailManagerRepositoryInMemory implements RetailManagerRepository 
 		shop1.setShopAddress(new ShopAddress(BigInteger.valueOf(1), "600001"));
 		shop1.setShopLatitude(13.0963045);
 		shop1.setShopLongitude(80.2865916);
+		shop1.setVersion(INITIAL_VERSION);
 		addShop(shop1);
 		Shop shop2 = new Shop();
 		shop2.setShopName("Dummy Shop Two");
 		shop2.setShopAddress(new ShopAddress(BigInteger.valueOf(1), "100001"));
 		shop2.setShopLatitude(39.9077718);
 		shop1.setShopLongitude(116.4254997);
+		shop2.setVersion(INITIAL_VERSION);
 		addShop(shop2);
 	}
 
 	@Override
-	public void addShop(Shop newShop) {
-		logger.info("RetailManagerRepositoryInMemory : adding " + newShop.toString());
+	public Shop addShop(Shop newShop) {
+		logger.debug("RetailManagerRepositoryInMemory : adding " + newShop.toString());
 		synchronized (shopList) {
 			Shop oldShop = shopList.get(newShop.getShopName());
 			if (oldShop == null) {
 				// just add shop
 				logger.info("Adding new shop");
+				newShop.setVersion(INITIAL_VERSION);
 				shopList.put(newShop.getShopName(), newShop);
 			} else {
 				// update shop
 				logger.info("Updating existing shop");
+				newShop.setVersion(oldShop.getVersion() + 1);
 				shopList.replace(oldShop.getShopName(), newShop);
 			}
 		}
+		logger.info("RetailManagerRepositoryInMemory : added/updated shop " + newShop.toString());
+		return newShop;
 	}
 
 	@Override

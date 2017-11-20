@@ -1,5 +1,8 @@
 package com.db.retailmanager;
 
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.when;
+
 import java.io.IOException;
 import java.math.BigInteger;
 
@@ -10,6 +13,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -23,13 +27,14 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.db.retailmanager.api.RetailManagerRequest;
 import com.db.retailmanager.api.RetailManagerResponse;
+import com.db.retailmanager.geocoding.GoogleGeoCodingAPI;
 import com.db.retailmanager.modal.ShopAddress;
+import com.db.retailmanager.modal.ShopGeoLocation;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-//@RunWith(SpringRunner.class)
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 @WebAppConfiguration
@@ -38,6 +43,9 @@ public class RetailmanagerserviceApplicationTests {
 	private static final String API_URI = "/api/shops";
 
 	private MockMvc mockMvc;
+
+	@MockBean
+	private GoogleGeoCodingAPI googleGeoCodingAPI;
 
 	@Autowired
 	protected WebApplicationContext webApplicationContext;
@@ -74,6 +82,9 @@ public class RetailmanagerserviceApplicationTests {
 		retailManagerRequest.setShopAddress(shopAddress);
 		String inputJson = mapRequestToJson(retailManagerRequest);
 
+    	ShopGeoLocation shopGeoLocation = new ShopGeoLocation(13.0963045, 80.2865916);
+		when(googleGeoCodingAPI.getShopGeoLocation(retailManagerRequest)).thenReturn(shopGeoLocation);
+
 		MvcResult result = mockMvc.
 				perform(MockMvcRequestBuilders
 						.post(API_URI)
@@ -99,6 +110,8 @@ public class RetailmanagerserviceApplicationTests {
 
 	@Test
 	public void getShopsTest() throws Exception {
+		when(googleGeoCodingAPI.getPostalCode(any())).thenReturn("600001");
+
 		MvcResult result = mockMvc
 				.perform(MockMvcRequestBuilders.get(API_URI)
 						.param("customerLongitude", "80.2865916")

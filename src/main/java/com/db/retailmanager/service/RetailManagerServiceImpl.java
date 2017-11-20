@@ -32,9 +32,9 @@ public class RetailManagerServiceImpl implements RetailManagerService {
 			shop.setShopLatitude(shopGeoLocation.getShopLatitude());
 		}
 
-		retailManagerRepository.addShop(shop);
+		Shop shopAdded = retailManagerRepository.addShop(shop);
 
-		return shop;
+		return shopAdded;
 	}
 
 	@Override
